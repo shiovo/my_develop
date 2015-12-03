@@ -39,33 +39,20 @@ gulp.task("sass", function() {
           require:'./src/sass/_foundation/color.rb',
           style: 'expanded'
         })
-        .pipe(gulp.dest('tmp/css/'));
+        .pipe(gulp.dest('src/css/'));
 });
 
-// gulp.task("sass", function() {
-//     return gulp.src("src/sass/**/*scss")
-//         // .pipe(sass())
-//         .pipe(plumber({
-//           errorHandler: notify.onError('<%- error.__safety || error %>')
-//         }))
-//         .pipe(sass({  // sass のコンパイルの実行
-//           r: 'sass-globbing', // sass-globbing 利用オプション
-//           'sourcemap=none': true // ソースマップを生成しない
-//         }))
-
-//         .pipe(gulp.dest("tmp/"));
-// });
 
 //ローカルサーバー
 gulp.task('connectDev',function(){
   connect.server({
-    root: ['src', 'tmp'],   //ルートディレクトリ
+    root: ['src'],   //ルートディレクトリ
     host: HOST,
     port: PORT,     //ポート番号
     livereload: true,
     middleware: function () {
       return [connectSSI({
-        baseDir: __dirname + '/src',
+        baseDir: __dirname + './src',
         ext: '.html'
       })];
     }
@@ -73,7 +60,7 @@ gulp.task('connectDev',function(){
 });
 
 gulp.task('open', function () {
-  gulp.src('src/index.html').pipe(open("", {
+  gulp.src('./src/index.html').pipe(open("", {
     url: 'http://' + HOST + ':' + PORT
   }));
 });
@@ -113,13 +100,13 @@ gulp.task('copy-all', function () {
 gulp.task('watch',function(){
   gulp.watch(['src/**/*.html'],['reload']);    //htmlファイルを監視
   gulp.watch(['src/sass/**/*.scss'],['sass']); //scssファイルを監視
-  gulp.watch(['tmp/**/*.css'],['reload']);       //cssファイルを監視
+  gulp.watch(['src/css/**/*.css'],['reload']);       //cssファイルを監視
   gulp.watch(['src/js/**/*.js'],['reload']); //jsファイルを監視
 });
  
 gulp.task('default', function (cb) {
-  runSequence('clean-tmp', 'sass', ['watch','connectDev'], 'open', cb);
+  runSequence('sass', ['watch','connectDev'], 'open', cb);
 });
 gulp.task('build', function (cb) {
-  runSequence('clean-tmp', 'clean-dist', 'sass', ['copy-all', 'imagemin'], cb);
+  runSequence('clean-dist', 'sass', ['copy-all', 'imagemin'], cb);
 });

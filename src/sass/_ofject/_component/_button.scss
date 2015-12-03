@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/* btn
+----------------------------------------------------*/
+%c-btn{
+	font-size: 1.6rem;
+	padding: 25px;
+	border-radius: 5px;
+	display: inline-block;
+	width: 264px;
+	text-align: center;
+	letter-spacing: $letter-100;
+}
+
+
+.c-btn-dark{
+	@extend %c-btn;
+	color: #fff;
+	background-color: rgba(255,255,255,0.1);
+}
+
+@include media-max {
+.c-btn{
+
+}
+
+}
+
+/* SP */
+@include media-min {
+.c-btn-dark{
+	padding: 15px 0;
+	width: 165px;
+}
+
+}
+
+

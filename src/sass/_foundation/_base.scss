@@ -1,82 +1,101 @@
 @charset "UTF-8";
 /* --------------------------------------------------------------
-    base
+base
 -------------------------------------------------------------- */
-.lu_contents {
-    -webkit-font-smoothing: antialiased;
-    font-family: $font-normal;
-    color: $color-text;
-
-    line-height: $line-height;
-    height: 100%;
-    min-width: $width-min;
-    z-index: 1;
-    position: relative;
+html {
+	font-size: 62.5%;
 }
 
-.lu_contents *{
+
+body {
+    font-family: 'Raleway', Verdana, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;    color: $color-text;
+    line-height: 1.5;
+    font-size: 1.4em;
+    letter-spacing:1.1px;
+}
+
+*{
     box-sizing:border-box;
 }
 
-.lu_contents a {
-    color: $color-link;
+a {
+    color: $color-text;
     text-decoration: none;
     cursor: pointer;
+
+    &:hover{
+        opacity:0.6;
+        transition: all 0.3s;
+    }
 }
 
-.lu_contents h1,
-.lu_contents h2,
-.lu_contents h3,
-.lu_contents h4 {
+small {
+
+}
+
+p {
+	margin: 0;
+	line-height: 1.6;
+}
+
+h1,h2,h3,h4 {
+	font-size: inherit;
     margin: 0;
     padding: 0;
     font-weight: normal;
-    background: none;
-    border:0;
-    font-size: inherit;
+    line-height: 1;
 }
 
-// .lu_contents ul,
-// .lu_contents li {
-// 	list-style: none;
-// 	margin: 0;
-// 	padding: 0;
-// }
+ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
 
-// .lu_contents dl,
-// .lu_contents dt,
-// .lu_contents dd {
-// 	margin:0;
-// 	padding:0;
-// }
+dl, dt, dd {
+	margin:0;
+	padding:0;
+}
 
-.lu_contents img {
+figure {
+	margin: 0;
+}
+
+img {
 	max-width: 100%;
     height: auto;
     vertical-align: middle;
 }
 
-.lu_contents table{
+table{
 	border-collapse: collapse;
 }
 
-.lu_contents th{
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    font-size: inherit;
+}
+
+select{
+    padding: 2px 5px;
+
+}
+
+th{
     font-weight: normal;
 }
 
-/* overwrite */
-#header{
-    margin-bottom: 0;
-}
-#mainContent{
-    padding: 0;
+
+@include media-max {
+
+
 }
 
-.M_005{
-    margin-top: 0;
-    // z-index: 2;
+/* SP */
+@include media-min {
+
+body{
+    font-size: 1.3em;
 }
 
-#mainContent{
-    margin-bottom:0; 
 }
+

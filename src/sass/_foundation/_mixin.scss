@@ -16,52 +16,17 @@
   }
 }
 
-//hover
-@mixin hover {
-  a{
-      transition: opacity .4s linear ;
-      -webkit-transition: opacity .4s linear ;
-    &:hover{
-      transition: opacity .4s linear ;
-      -webkit-transition: opacity .4s linear ;
-      opacity: 0.6 ;
-      -ms-filter: "alpha(opacity=60)";
-    }
-  }
-}
-
-@mixin hover-op40 {
-  a{
-      transition: opacity .28s linear ;
-      -webkit-transition: opacity .28s linear ;
-    &:hover{
-      transition: opacity .28s linear ;
-      -webkit-transition: opacity .28s linear ;
-      opacity: 0.4 ;
-      -ms-filter: "alpha(opacity=40)";
-    }
-  }
-}
-
-
 // Media Queries
-@mixin lu_media-max {
+@mixin media-max {
   // 1280px以上
-  @media only screen and (min-width: 1281px ) {
+  @media only screen and (min-width: 900px ) {
     @content;
   }
 }
 
-@mixin lu_media-mid {
-  // 1280px以下
-  @media only screen and (max-width: $width-mid) {
-    @content;
-  }
-}
-
-@mixin lu_media-min {
+@mixin media-min {
   // 980px以下
-  @media only screen and (max-width: $width-min) {
+  @media only screen and (max-width: 899px) {
     @content;
   }
 }

@@ -7,26 +7,26 @@ $font-size-18: 112.5%;
 $font-size-19: 118%;
 $font-size-20: 125%;
 
-$line-height: 1.71;
 
 // color
 $color-body: #fff;
-$color-text: #000;
-$color-black: #000;
-$color-link:#929292;
+$color-text: #999;
+$color-sub-text: #949494;
+$color-strong: #7b6c63;
+
+// letter spacing
+$letter-25: 0.1rem;
+$letter-50: 0.2rem;
+$letter-100: 0.4rem;
+
 
 // Width
-$width-max: 1480px;
-$width-mid: 1280px;
-$width-min: 980px;
+$width-max: 1230px;
+$width-min: 799px;
 
 // font
 $font-normal: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 $font-bold: "ヒラギノ角ゴ Pro W6", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W6";
-$font-strong:"ヒラギノ角ゴ Std", "Hiragino Kaku Gothic Std" , "ヒラギノ角ゴ Pro W6", "ヒラギノ角ゴ ProN W6";
-$font-en:'Helvetica Neue', Helvetica,"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, Verdana, sans-serif;
-$font-en-tin:"HelveticaNeue-Light", "HelveticaNeue Light", "Helvetica Neue Light",'Helvetica Neue', Helvetica,"Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, Verdana, sans-serif;
-$font-en-bold:"HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold",'Helvetica Neue', Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", Arial, sans-serif; 
 
 //margin
 $margin-40:6.0%;
