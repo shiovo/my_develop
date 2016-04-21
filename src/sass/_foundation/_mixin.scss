@@ -1,9 +1,4 @@
 @charset "UTF-8";
-//リンク装飾リセット
-@mixin link-reset{
-	color: $color-text;
-	text-decoration: none;
-}
 
 //clearfix
 @mixin clearfix {

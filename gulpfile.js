@@ -1,8 +1,7 @@
 // @file gulpfile.js
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
-//var sass = require('gulp-sass');
-var sass = require('gulp-ruby-sass');
+var sass = require('gulp-sass');
 var connect = require('gulp-connect');
 var connectSSI = require('connect-ssi');
 var clean = require('gulp-clean');
@@ -33,13 +32,12 @@ var HOST = (function () {
 var PORT = 8000;
 //--------------------------
 
-
-gulp.task("sass", function() {
-    return sass("src/sass/", {
-          require:'./src/sass/_foundation/color.rb',
-          style: 'expanded'
-        })
-        .pipe(gulp.dest('src/css/'));
+// Sass
+gulp.task('sass', function(){
+  gulp.src('src/sass/**/*.scss')
+    .pipe(plumber())
+    .pipe(sass())
+    .pipe(gulp.dest('src/css/'));
 });
 
 
@@ -64,8 +62,7 @@ gulp.task('open', function () {
     url: 'http://' + HOST + ':' + PORT
   }));
 });
- 
-//htmlタスク
+
 gulp.task('reload',function(){
   return gulp.src('src/**/*.html') //実行するファイル
     .pipe(connect.reload());  //ブラウザの更新
@@ -95,15 +92,15 @@ gulp.task('copy-all', function () {
     '!src/images/**/*.*'
   ]).pipe(gulp.dest('dist/'));
 });
- 
+
 //ファイルの監視
 gulp.task('watch',function(){
   gulp.watch(['src/**/*.html'],['reload']);    //htmlファイルを監視
   gulp.watch(['src/sass/**/*.scss'],['sass']); //scssファイルを監視
-  gulp.watch(['src/css/**/*.css'],['reload']);       //cssファイルを監視
+  gulp.watch(['src/css/**/*.css'],['reload']);  //cssファイルを監視
   gulp.watch(['src/js/**/*.js'],['reload']); //jsファイルを監視
 });
- 
+
 gulp.task('default', function (cb) {
   runSequence('sass', ['watch','connectDev'], 'open', cb);
 });

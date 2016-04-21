@@ -1,19 +1,21 @@
 @charset "UTF-8";
 
 /* foundation */
+@import '_foundation/_sanitize';
 @import '_foundation/_vars';
 @import '_foundation/_mixin';
 @import '_foundation/_base';
 
 
+/* layout */
 /* --------------------------------------------------------------
     layout
 -------------------------------------------------------------- */
 @import '_layout/_header';
 @import '_layout/_footer';
 
-/* ofject */
 
+/* ofject */
 /* --------------------------------------------------------------
     component
 -------------------------------------------------------------- */
